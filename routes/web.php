@@ -15,4 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/post','PostController');
+//Route::resource('/post','PostController');
+
+Route::name("posts_path")->get("/post","PostController@index");
+Route::name("store_post_path")->post("/post","PostController@store");
+
+
+Route::name("create_post_path")->get("/post/create","PostController@create");
+Route::name("post_path")->get("/post/{post}","PostController@show");
